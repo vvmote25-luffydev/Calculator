@@ -1,0 +1,100 @@
+<html>
+<head>
+    <title>Simple Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        .calculator {
+            width: 250px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-align: right;
+        }
+
+        button {
+            width: 50px;
+            height: 40px;
+            margin: 5px;
+            font-size: 16px;
+        }
+    </style>
+
+    <script>
+        function insert(value) {
+            document.getElementById("result").value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById("result").value = "";
+        }
+
+        function calculate() {
+            let exp = document.getElementById("result").value;
+            try {
+                document.getElementById("result").value = eval(exp);
+            } catch {
+                alert("Invalid Expression");
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Simple Calculator</h2>
+
+    <div class="calculator">
+
+        <input type="text" id="result" readonly>
+
+        <br>
+
+        <button onclick="insert('7')">7</button>
+        <button onclick="insert('8')">8</button>
+        <button onclick="insert('9')">9</button>
+        <button onclick="insert('/')">/</button>
+
+        <br>
+
+        <button onclick="insert('4')">4</button>
+        <button onclick="insert('5')">5</button>
+        <button onclick="insert('6')">6</button>
+        <button onclick="insert('*')">*</button>
+
+        <br>
+
+        <button onclick="insert('1')">1</button>
+        <button onclick="insert('2')">2</button>
+        <button onclick="insert('3')">3</button>
+        <button onclick="insert('-')">-</button>
+
+        <br>
+
+        <button onclick="insert('0')">0</button>
+        <button onclick="insert('.')">.</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="insert('+')">+</button>
+
+        <br>
+
+        <button onclick="clearDisplay()" style="width: 100%">C</button>
+
+    </div>
+
+</body>
+</html>
